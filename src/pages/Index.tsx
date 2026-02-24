@@ -21,7 +21,7 @@ const Index = () => {
         <Section title="Experience">
           <div className="space-y-8">
             <ExperienceItem
-              role="Collaboration Engineer"
+              role="Senior Enterprise Applications Engineer"
               company="Nebius"
               period="2025 — Present"
               description="Collaboration and enterprise systems engineering for a next-generation cloud platform."

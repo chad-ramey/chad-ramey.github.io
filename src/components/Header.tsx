@@ -15,10 +15,10 @@ const Header = () => {
       <div className="flex items-start justify-between">
         <div>
           <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight text-foreground">
-            Alex Morgan
+            Chad Ramey
           </h1>
           <p className="mt-3 text-lg text-muted-foreground font-light tracking-wide">
-            Designer & Engineer
+            Hack of All Trades
           </p>
         </div>
         <button
