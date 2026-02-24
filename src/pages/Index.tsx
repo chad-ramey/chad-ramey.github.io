@@ -23,13 +23,13 @@ const Index = () => {
             <ExperienceItem
               role="Senior Enterprise Applications Engineer"
               company="Nebius"
-              period="2025 — Present"
+              period="2026 — Present"
               description="Collaboration and enterprise systems engineering for a next-generation cloud platform."
             />
             <ExperienceItem
               role="Sr. Collaboration Systems Engineer"
               company="Peloton Interactive"
-              period="2021 — 2025"
+              period="2021 — 2026"
               description="Engineered GW license reclamation program recovering 2,440+ licenses; eliminated $17K/month in Microsoft licensing waste. Led LastPass → 1Password and Lucidchart → Miro enterprise migrations, both at 100% completion. Built automated Google Groups backup system, hardened Workspace security posture, and maintained a 96.7% Jira ticket completion rate."
             />
             <ExperienceItem
