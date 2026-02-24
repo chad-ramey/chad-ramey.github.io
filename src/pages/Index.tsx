@@ -10,65 +10,83 @@ const Index = () => {
 
         <Section title="About">
           <p className="text-base leading-relaxed text-muted-foreground">
-            Designer and engineer with 8+ years building digital products. 
-            I care deeply about craft, clarity, and making complex things feel simple. 
-            Currently focused on design systems, typography, and developer tools.
+            Sr. Systems Engineer with 10+ years building and scaling enterprise collaboration 
+            ecosystems — Google Workspace, Slack, and SaaS infrastructure for organizations 
+            up to 40,000 users. I care about automation-first engineering, eliminating 
+            operational toil, and making complex systems feel manageable. Currently focused 
+            on enterprise tooling, SaaS optimization, and platform consolidation.
           </p>
         </Section>
 
         <Section title="Experience">
           <div className="space-y-8">
             <ExperienceItem
-              role="Senior Product Designer"
-              company="Studio Co."
-              period="2022 — Present"
-              description="Leading design for a suite of creative tools. Established the design system, led a rebrand, and shipped 3 major product launches."
+              role="Collaboration Engineer"
+              company="Nebius"
+              period="2025 — Present"
+              description="Collaboration and enterprise systems engineering for a next-generation cloud platform."
             />
             <ExperienceItem
-              role="Design Engineer"
-              company="Forma Labs"
-              period="2019 — 2022"
-              description="Built and maintained the component library. Worked across product, engineering, and brand to ship features used by 200k+ users."
+              role="Sr. Collaboration Systems Engineer"
+              company="Peloton Interactive"
+              period="2021 — 2025"
+              description="Engineered GW license reclamation program recovering 2,440+ licenses; eliminated $17K/month in Microsoft licensing waste. Led LastPass → 1Password and Lucidchart → Miro enterprise migrations, both at 100% completion. Built automated Google Groups backup system, hardened Workspace security posture, and maintained a 96.7% Jira ticket completion rate."
             />
             <ExperienceItem
-              role="UI Designer"
-              company="Basecamp Digital"
-              period="2017 — 2019"
-              description="Designed interfaces for web and mobile applications. Collaborated closely with developers to ensure pixel-perfect implementation."
+              role="SaaS Systems Engineer"
+              company="Uber Technologies"
+              period="2020 — 2021"
+              description="Technical lead for 10+ M&A transactions and divestitures. Drove ~$800K in annual SaaS cost avoidance through license rightsizing. Led ATG/Aurora Google Drive migration of 336K+ files and 171K+ emails in 144 consecutive hours — 5 months ahead of deadline."
             />
             <ExperienceItem
-              role="Freelance Designer"
-              company="Independent"
-              period="2015 — 2017"
-              description="Worked with startups and agencies on branding, web design, and product strategy."
+              role="Sr. Service Desk Technician"
+              company="Uber Technologies"
+              period="2015 — 2020"
+              description="Lead technician supporting 40,000+ global employees. Built Slack Global Dynamic Channels, Phoenix macOS imaging infrastructure, and Uber's Legal Hold process for IT hardware. Trained and mentored L1/L2 technicians, contributing to 3 internal promotions."
+            />
+            <ExperienceItem
+              role="IT Technician"
+              company="Yelp"
+              period="2014 — 2015"
+              description="L1/L2 support across global employee base. Supported AV conferencing systems and assisted with Aruba network upgrade and Scottsdale office buildout."
             />
           </div>
         </Section>
 
         <Section title="Education">
-          <ExperienceItem
-            role="B.A. Visual Communication"
-            company="School of Design, Berlin"
-            period="2012 — 2015"
-          />
+          <div className="space-y-8">
+            <ExperienceItem
+              role="AAS, Computer Technology"
+              company="Rio Salado College"
+            />
+            <ExperienceItem
+              role="AA, Liberal Arts"
+              company="Glendale Community College"
+            />
+            <ExperienceItem
+              role="AA, Management"
+              company="Community College of the Air Force"
+            />
+          </div>
         </Section>
 
         <Section title="Skills">
           <p className="text-base leading-relaxed text-muted-foreground">
-            Figma, React, TypeScript, Tailwind CSS, Design Systems, Prototyping, 
-            User Research, Information Architecture, Motion Design, Print & Editorial
+            Google Workspace, Slack, Microsoft 365, Okta, Atlassian, PowerShell, Python, 
+            Google Apps Script, GAM/GAMADV-XTD, Bash, API Integrations, GCP, Azure, AWS, 
+            SailPoint IIQ, 1Password, Jira, Splunk, PagerDuty, GitHub, Docker
           </p>
         </Section>
 
         <Section title="Contact">
           <div className="space-y-1">
-            <a href="mailto:hello@example.com" className="block text-base text-foreground underline decoration-border underline-offset-4 hover:decoration-accent transition-colors">
-              hello@example.com
+            <a href="mailto:mail@chadramey.com" className="block text-base text-foreground underline decoration-border underline-offset-4 hover:decoration-accent transition-colors">
+              mail@chadramey.com
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="block text-base text-muted-foreground underline decoration-border underline-offset-4 hover:decoration-accent hover:text-foreground transition-colors">
+            <a href="https://www.linkedin.com/in/chadramey/" target="_blank" rel="noopener noreferrer" className="block text-base text-muted-foreground underline decoration-border underline-offset-4 hover:decoration-accent hover:text-foreground transition-colors">
               LinkedIn
             </a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="block text-base text-muted-foreground underline decoration-border underline-offset-4 hover:decoration-accent hover:text-foreground transition-colors">
+            <a href="https://github.com/chad-ramey" target="_blank" rel="noopener noreferrer" className="block text-base text-muted-foreground underline decoration-border underline-offset-4 hover:decoration-accent hover:text-foreground transition-colors">
               GitHub
             </a>
           </div>
