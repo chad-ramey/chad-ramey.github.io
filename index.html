@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chad Ramey — IT Engineer</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --border: #30363d;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-dim: #1f6feb;
+      --green: #3fb950;
+      --purple: #bc8cff;
+      --tag-bg: #21262d;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Layout ── */
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── Nav ── */
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      background: rgba(13,17,23,0.92);
+      backdrop-filter: blur(8px);
+      z-index: 10;
+    }
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    nav .name {
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--text);
+    }
+    nav .links { display: flex; gap: 20px; }
+    nav .links a { color: var(--muted); font-size: 14px; }
+    nav .links a:hover { color: var(--text); text-decoration: none; }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 72px 0 56px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+    .hero h1 span { color: var(--accent); }
+    .hero .subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+    .hero p {
+      max-width: 620px;
+      color: var(--muted);
+      margin-bottom: 32px;
+      font-size: 15px;
+    }
+    .hero-links { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.85; text-decoration: none; }
+    .btn-primary { background: var(--accent-dim); color: #fff; }
+    .btn-secondary { background: var(--tag-bg); color: var(--text); border: 1px solid var(--border); }
+
+    /* ── Section ── */
+    section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+    section:last-of-type { border-bottom: none; }
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 32px;
+      color: var(--text);
+    }
+
+    /* ── Project cards ── */
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 16px; }
+    @media (max-width: 600px) { .cards { grid-template-columns: 1fr; } }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: border-color 0.15s;
+    }
+    .card:hover { border-color: var(--accent-dim); }
+
+    .card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .card-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .card-title:hover { text-decoration: underline; }
+    .card-lang {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .lang-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .lang-ts { background: #3178c6; }
+    .lang-py { background: #3572A5; }
+    .lang-sh { background: #89e051; }
+    .lang-js { background: #f1e05a; }
+
+    .card-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+    .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+    .tag {
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 20px;
+    }
+
+    /* ── Skills ── */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+    .skill-group h3 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+    .skill-group ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .skill-group li {
+      font-size: 14px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .skill-group li::before {
+      content: '';
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 32px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <span class="name">Chad Ramey</span>
+    <div class="links">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="https://github.com/chad-ramey">GitHub</a>
+      <a href="https://www.linkedin.com/in/chadramey/">LinkedIn</a>
+    </div>
+  </div>
+</nav>
+
+<main class="container">
+
+  <section class="hero">
+    <p class="section-label">IT Engineer</p>
+    <h1>Chad <span>Ramey</span></h1>
+    <p class="subtitle">Google Workspace Administration · Slack Platform Engineering</p>
+    <p>
+      I build automation that makes enterprise IT scale — event-driven Slack apps,
+      Google Workspace scripted workflows, and API integrations that ops teams
+      can actually run in production.
+    </p>
+    <div class="hero-links">
+      <a class="btn btn-primary" href="https://github.com/chad-ramey">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+      <a class="btn btn-secondary" href="https://www.linkedin.com/in/chadramey/">LinkedIn</a>
+    </div>
+  </section>
+
+  <section id="projects">
+    <p class="section-label">Work</p>
+    <h2>Projects</h2>
+
+    <p style="color:var(--muted);font-size:14px;margin-bottom:28px;margin-top:-16px;">Slack Platform Engineering</p>
+    <div class="cards" style="margin-bottom:40px;">
+
+      <div class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/chad-ramey/slack-app-automation">slack-app-automation</a>
+          <span class="card-lang"><span class="lang-dot lang-ts"></span>TypeScript</span>
+        </div>
+        <p class="card-desc">
+          Deno/Slack hosted app that automates the full app install request lifecycle.
+          Dual intake paths (real-time message trigger + retroactive emoji reaction),
+          121-scope OAuth risk classification across 5 tiers, and automated JSM ticket creation.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Deno</span>
+          <span class="tag">Slack SDK</span>
+          <span class="tag">Jira Service Management</span>
+          <span class="tag">51 tests</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/chad-ramey/slack-connect-automation">slack-connect-automation</a>
+          <span class="card-lang"><span class="lang-dot lang-ts"></span>TypeScript</span>
+        </div>
+        <p class="card-desc">
+          Governs Slack Connect invite requests end-to-end: auto-approves private channel
+          invites, creates Jira audit tickets, and runs an hourly sweep to catch events
+          the trigger missed. Handles inbound and outbound flows with full dedup logic.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Deno</span>
+          <span class="tag">Slack Connect</span>
+          <span class="tag">Event-driven</span>
+          <span class="tag">Jira API</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/chad-ramey/slack">slack</a>
+          <span class="card-lang"><span class="lang-dot lang-py"></span>Python</span>
+        </div>
+        <p class="card-desc">
+          40+ admin scripts covering the full Slack API surface: SCIM user lifecycle,
+          channel management, usergroups, emoji administration, workflow automation,
+          guest expiration, and audit log processing.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Slack Web API</span>
+          <span class="tag">SCIM</span>
+          <span class="tag">Admin API</span>
+          <span class="tag">Python</span>
+        </div>
+      </div>
+
+    </div>
+
+    <p style="color:var(--muted);font-size:14px;margin-bottom:28px;">Google Workspace Administration</p>
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/chad-ramey/gw">gw</a>
+          <span class="card-lang"><span class="lang-dot lang-py"></span>Python</span>
+        </div>
+        <p class="card-desc">
+          CI-driven Workspace automation: license monitoring with Slack alerts,
+          Shared Drive ACL exports, Google Groups backups, and GG Settings backups —
+          all scheduled via GitHub Actions with domain-wide delegation.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Admin SDK</span>
+          <span class="tag">GitHub Actions</span>
+          <span class="tag">Google Drive API</span>
+          <span class="tag">Domain-wide Delegation</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/chad-ramey/gas">gas</a>
+          <span class="card-lang"><span class="lang-dot lang-js"></span>Apps Script</span>
+        </div>
+        <p class="card-desc">
+          Google Apps Script collection: CAB form → calendar automation, PTO calendar
+          syncing (group and per-user), calendar delegation at scale, account
+          reactivation manager, mail merge, and legal hold intake.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Google Apps Script</span>
+          <span class="tag">Calendar API</span>
+          <span class="tag">Forms</span>
+          <span class="tag">Admin SDK</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/chad-ramey/gam">gam</a>
+          <span class="card-lang"><span class="lang-dot lang-sh"></span>Shell</span>
+        </div>
+        <p class="card-desc">
+          Shell scripts wrapping GAM and GAMADV-XTD3 for bulk offboarding workflows:
+          batched calendar wipes with retry logic, Drive content transfers,
+          file/folder ownership changes, and auto-updaters.
+        </p>
+        <div class="card-tags">
+          <span class="tag">GAM</span>
+          <span class="tag">GAMADV-XTD3</span>
+          <span class="tag">Offboarding</span>
+          <span class="tag">Bash</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="skills">
+    <p class="section-label">Capabilities</p>
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>Slack</h3>
+        <ul>
+          <li>Slack hosted apps (Deno/TS)</li>
+          <li>Web API / Admin API / SCIM</li>
+          <li>Slack Connect governance</li>
+          <li>Workflow Builder</li>
+          <li>App lifecycle management</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Google Workspace</h3>
+        <ul>
+          <li>Admin SDK / Directory API</li>
+          <li>Domain-wide delegation</li>
+          <li>Google Apps Script</li>
+          <li>GAM / GAMADV-XTD3</li>
+          <li>Drive, Calendar, Groups APIs</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Languages</h3>
+        <ul>
+          <li>Python</li>
+          <li>TypeScript / Deno</li>
+          <li>Google Apps Script</li>
+          <li>Bash / Shell</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Integrations</h3>
+        <ul>
+          <li>Jira Service Management</li>
+          <li>GitHub Actions</li>
+          <li>REST APIs</li>
+          <li>Webhook automation</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <a href="https://github.com/chad-ramey">github.com/chad-ramey</a>
+    &nbsp;·&nbsp;
+    <a href="https://www.linkedin.com/in/chadramey/">linkedin.com/in/chadramey</a>
+  </div>
+</footer>
+
+</body>
+</html>
